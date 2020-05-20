@@ -1,24 +1,20 @@
-//import ORM to create functions that will interact w/database
-var orm = require("../config/orm.js");
-//ORMs selectAll, insertOne,updateOne
-//Also inside burger.js, create the code that will call the ORM functions using burger specific input for the ORM.
-var burger = {
-    selectAll: function (callback) {
-        orm.selectAll("burgers", function (response) {
-            callback(response)
-        });
-    },
-    // variables columnss and valuess are arrays
-    insertOne: function (columns, values, callback) {
-        orm.insertOne("burgers", columns, values, function (response) {
-            callback(response);
-        });
-    },
-    updateOne: function (objColVals, condition, callback) {
-        orm.updateOne("burgers", objColVals, condition, function (response) {
-            callback(response);
-        });
-    }
-}
+//Remove all references to your MySQL queries and replace them with Sequelize queries
 
-module.exports = burger;
+module.exports = function (sequelize, DataTypes) {
+
+    var Burgers = sequelize.define("Burgers", {
+
+        burger_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        devoured: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        }
+    });
+    return Burger;
+}
