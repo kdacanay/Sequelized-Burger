@@ -1,0 +1,72 @@
+#burger-image {
+  font-family: "Wendy One", sans-serif;
+}
+
+h1 {
+  font-size: 70px;
+  color: #02c222;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+p {
+  font-family: "Wendy One", sans-serif;
+  font-size: 20px;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+h4 {
+  font-family: "Wendy One", sans-serif;
+  font-size: 30px;
+  color: #02c222;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+body {
+  background-image: url(/assets/images/backgroundfries.jpg);
+  background-size: cover;
+  /* background-color: #ffd620; */
+}
+
+button {
+  color: white;
+  background-color: #ff1f14;
+  border-color: #ff1f14;
+  font-family: "Wendy One", sans-serif;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+button:hover {
+  background-color: #02c222;
+  border-color: #02c222;
+}
+
+button.btn-primary {
+  background-color: #ff1f14;
+  border-color: #ff1f14;
+  font-family: "Wendy One", sans-serif;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+button.btn-primary:hover {
+  background-color: #02c222;
+  border-color: #02c222;
+}
+
+li {
+  font-family: "Wendy One", sans-serif;
+  font-size: 20px;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+/* .container {
+  background-image: url(/assets/images/backgroundfries.jpg);
+  background-size: cover;
+} */

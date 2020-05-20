@@ -1,0 +1,69 @@
+<!--
+Inside your burger directory, create a folder named views.
+- Create the index.handlebars file inside views directory.
+- Create the layouts directory inside views directory.
+- Create the main.handlebars file inside layouts directory.
+- Setup the main.handlebars file so it's able to be used by Handlebars.
+- Setup the index.handlebars to have the template that Handlebars can render onto.
+- Create a button in index.handlebars that will submit the user input into the database.
+-->
+{{!-- main container --}}
+<div class="container">
+    {{!-- main title --}}
+    <div class='row'>
+        <div class='col-lg-12 text-center' id='burger-image'>
+            <h1>Eat-Da-Burger!</h1>
+            <img src='/assets/images/burger1.png' width="250" />
+        </div>
+    </div>
+    <br>
+    {{!-- burger section --}}
+    <div class='row'>
+        <div class='col-md-2'></div>
+        {{!-- display burgers to eat --}}
+        <div class='col-md-4 text-center'>
+            <h4>Burgers Available!</h4>
+            <ul class='uneaten text-center' style="list-style-type:none;">
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                {{> burgers/burger-block devoured=false}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        {{!-- display burgers that have been eaten --}}
+        <div class='col-md-4 text-center'>
+            <h4>Burgers Eaten!</h4>
+            <ul class='eaten text-center' style="list-style-type:none;">
+                {{#each burgers}}
+                {{#if this.devoured}}
+                {{> burgers/burger-block devoured=true}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class='col-md-2'></div>
+    </div>
+    {{!-- form for creating burgers --}}
+    <div class='row'>
+        <div class='col-md-3'></div>
+        {{!-- add a burger section use form/POST method w/submit button--}}
+        <div class='col-md-6 text-center'>
+            <h4>Add a Burger!</h4>
+            <form class='create-form'>
+                <div class='form-group text-center'>
+                    <p>Create a Burger to Eat and Click Submit!</p>
+                    <input type='text' id='createBurger' name='burger_name'>
+                    <button type='submit' class='btn-primary' id='submitCreate'>Submit</button>
+                </div>
+            </form>
+            <div class='col-md-3'></div>
+        </div>
+
+
+
+
+
+
+
+    </div>
