@@ -6,47 +6,44 @@ var express = require("express");
 
 var router = express.Router();
 
-//import the model burgers.js to use database
-var burger = require("../models/burger.js");
+var db = require('../models')
 
 
 //create routes, index
 router.get("/", function (req, res) {
-    burger.selectAll(function (data) {
-        var hbsObject = {
-            burgers: data
-        };
-        console.log(hbsObject);
-        res.render('index', hbsObject);
-    });
+    //sequelize
+    db.Burger.findAll()
+        .then(function (data) {
+            console.log(data);
+            var hbsObject = {
+                burgers: data
+            };
+            return res.render("index", hbsObject);
+        })
 });
 
 //create: post route and then redirect to /index
 router.post("/burgers/create", function (req, res) {
-    burger.insertOne([
-        'burger_name', 'devoured'
-    ], [
-        req.body.burger_name, req.body.devoured
-    ], function () {
-        res.redirect("/");
-    });
+    db.Burger.create({
+            burger_name: req.body.burger_name
+        })
+        .then(function (data) {
+            console.log(data);
+            res.redirect('/');
+        })
 });
 
 // update: put route and return to index 
 router.put("/burgers/update/:id", function (req, res) {
-    var condition = "id = " + req.params.id;
-    console.log("condition", condition);
-
-    burger.updateOne({
-            devoured: req.body.devoured
-        }, condition,
-        function (result) {
-            if (result.changedRows == 0) {
-                return res.status(404).end();
-            } else {
-                res.status(200).end();
-            }
-        });
+    db.Burger.update({
+        devoured: true
+    }, {
+        where: {
+            id: req.params.id
+        }
+    }).then(function (data) {
+        res.json('/');
+    });
 });
 
 // export routes for server.js to use

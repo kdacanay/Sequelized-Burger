@@ -1,20 +1,12 @@
-//Remove all references to your MySQL queries and replace them with Sequelize queries
-
-module.exports = function (sequelize, DataTypes) {
-
-    var Burgers = sequelize.define("Burgers", {
-
-        burger_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
+module.exports = function (sequelize, Datatypes) {
+    var Burger = sequelize.define('Burger', {
+        burger_name: Datatypes.STRING,
         devoured: {
-            type: DataTypes.BOOLEAN,
+            type: Datatypes.BOOLEAN,
             defaultValue: false
         }
+    }, {
+        timestamps: false
     });
     return Burger;
 }
