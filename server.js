@@ -13,13 +13,6 @@ var PORT = process.env.PORT || 8080;
 
 var app = express();
 
-
-db.sequelize.sync().then(function () {
-    app.listen(PORT, function () {
-        console.log('listening on port', PORT);
-    });
-});
-
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
@@ -31,7 +24,10 @@ app.use(express.json());
 
 app.engine("handlebars", exphbs({
     handlebars: allowInsecurePrototypeAccess(_handlebars),
-    defaultLayout: "main"
+    defaultLayout: "main",
+    extname: 'handlebars',
+    layoutsDir: __dirname + '/views/layouts',
+    partialsDir: __dirname + '/views/partials'
 }));
 app.set("view engine", "handlebars");
 
@@ -45,3 +41,8 @@ app.use(routes);
 //     // Log (server-side) when our server has started
 //     console.log("Server listening on: http://localhost:" + PORT);
 // });
+db.sequelize.sync().then(function () {
+    app.listen(PORT, function () {
+        console.log('listening on port', PORT);
+    });
+});

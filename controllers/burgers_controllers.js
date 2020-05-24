@@ -11,10 +11,12 @@ var db = require('../models')
 
 //create routes, index
 router.get("/", function (req, res) {
+    // console.log(req);
     //sequelize
     db.Burger.findAll()
         .then(function (data) {
             console.log(data);
+            console.log("============", data[2])
             var hbsObject = {
                 burgers: data
             };
