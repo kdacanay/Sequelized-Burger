@@ -16,7 +16,7 @@ router.get("/", function (req, res) {
     db.Burger.findAll()
         .then(function (data) {
             console.log(data);
-            console.log("============", data[2])
+            // console.log("============", data[2])
             var hbsObject = {
                 burgers: data
             };

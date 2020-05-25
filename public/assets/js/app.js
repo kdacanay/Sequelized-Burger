@@ -3,14 +3,16 @@ $(document).ready(function () {
 
     $('.devour').on('click', function (event) {
         event.preventDefault();
+        console.log(event)
+        console.log(this);
 
-        var id = $(this).data('id');
+        var id = $(this).data('value');
         var newEatState = {
             devoured: true
         };
 
         console.log('burger id', id);
-        $.ajax('/burgers/update/' + id, {
+        $.ajax('/burgers/update/', {
             type: 'PUT',
             data: newEatState
         }).then(function () {

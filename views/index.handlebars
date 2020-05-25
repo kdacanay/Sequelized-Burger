@@ -26,8 +26,8 @@ Inside your burger directory, create a folder named views.
             <ul class='uneaten text-center' style="list-style-type:none;">
                 {{#each burgers}}
                 {{#unless this.devoured}}
-                {{this.id}}. {{this.burger_name}}
-                {{> burgers/burger-block devoured=false}}
+                {{this.id}}- {{this.burger_name}}
+                {{> burgers/burger-block devoured=false id=this.id}}
                 {{/unless}}
                 {{/each}}
             </ul>

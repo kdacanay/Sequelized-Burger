@@ -1,6 +1,6 @@
 <li>
     {{id}} - {{burger_name}}
     {{#unless devoured}}
-    <button class='devour' data-id="{{this.id}}" data-state="{{devoured}}">Eat It!</button>
+    <button type='submit' class='devour' data-state={{devoured}} data-value={{this.id}}>Eat It!</button>
     {{/unless}}
 </li>
